@@ -1,0 +1,815 @@
+/* ==================== CSS File =================== */
+/* ==================== Media Queries =================== */
+/* ==================== Fonts =================== */
+/* ==================== Colors =================== */
+/* ==================== Center our content =================== */
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 75em) {
+  .row {
+    max-width: 100rem;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  .row {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .row {
+    max-width: 55rem;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 24em) {
+  .row {
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+}
+
+/* ==================== Basic Styling =================== */
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #2d2d2d;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #1F1F1F;
+}
+
+.upper-text {
+  text-transform: uppercase;
+}
+
+.center-text {
+  text-align: center;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 47.35%;
+  }
+}
+
+@media only screen and (max-width: 24em) {
+  html {
+    font-size: 37.5%;
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #2d2d2d;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* ==================== Header Starts Here =================== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6rem;
+  height: 9.6rem;
+  z-index: 9999;
+}
+
+.logo {
+  font-size: 2.4rem;
+  color: #000;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 75em) {
+  .main-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(31, 31, 31, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
+
+.main-nav__list {
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+}
+
+@media only screen and (max-width: 75em) {
+  .main-nav__list {
+    flex-direction: column;
+    gap: 3rem;
+    text-align: center;
+  }
+}
+
+.main-nav__link {
+  display: inline-block;
+  color: #000;
+  font-size: 1.8rem;
+  transition: all 0.2s;
+}
+
+.main-nav__link:hover {
+  color: #FFC85B;
+}
+
+.main-nav__cta {
+  padding: 0.5rem 2rem;
+  border: 1px solid #000;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.7);
+  background-color: #000;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.main-nav__cta:hover {
+  background-color: #FFC85B;
+  color: #fff;
+  border: 1px solid #FFC85B;
+  color: #000;
+}
+
+@media only screen and (max-width: 75em) {
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .nav-open .main-nav__link {
+    color: #fff;
+    font-size: 3rem;
+  }
+}
+
+.nav-open .icon-mobile-nav[name='close-outline'] {
+  display: block;
+}
+
+.nav-open .icon-mobile-nav[name='menu-outline'] {
+  display: none;
+}
+
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: none;
+}
+
+@media only screen and (max-width: 75em) {
+  .btn-mobile-nav {
+    display: block;
+    z-index: 9999;
+  }
+}
+
+.icon-mobile-nav {
+  font-size: 4.8rem;
+  color: #000;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+/* ==================== Sticky Navigation =================== */
+.sticky .header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: rgba(31, 31, 31, 0.97);
+  z-index: 999;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.3);
+}
+
+.sticky .hero {
+  margin-top: 9.6rem;
+}
+
+.sticky .main-nav__link {
+  color: #fff;
+}
+
+.sticky .main-nav__link:hover {
+  color: #FFC85B;
+}
+
+.sticky .logo {
+  color: #fff;
+}
+
+.sticky .main-nav__cta {
+  background-color: #FFC85B;
+  color: #fff;
+}
+
+.sticky .main-nav__cta:hover {
+  color: #1F1F1F;
+}
+
+/* ==================== Navigation Ends here =================== */
+/* ==================== Header Ends Here =================== */
+/* ==================== Hero Starts Here =================== */
+.hero {
+  padding: 10rem 0 0 0;
+}
+
+.hero__content {
+  display: flex;
+}
+
+@media only screen and (max-width: 75em) {
+  .hero__content {
+    flex-direction: column;
+  }
+}
+
+.hero__textbox {
+  flex: 0 0 50%;
+}
+
+.hero__textbox > *:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+
+.hero__textbox--para {
+  font-size: 1.6rem;
+}
+
+.hero__textbox--flex {
+  display: flex;
+  margin-top: 4rem;
+}
+
+.hero__textbox--flex-left-para {
+  font-size: 1.4rem;
+}
+
+.hero__textbox--flex-right {
+  padding: 0 0 0 2vw;
+}
+
+.hero__textbox--flex-right-para {
+  font-size: 1.4rem;
+}
+
+.hero__img {
+  flex: 1;
+  transform: translate(10rem, -10rem);
+  z-index: 1;
+}
+
+@media only screen and (max-width: 75em) {
+  .hero__img {
+    transform: translate(0);
+  }
+}
+
+/* ==================== Hero Ends Here =================== */
+/* ==================== Headings Starts Here =================== */
+.heading-primary {
+  font-size: 6rem;
+  color: #1F1F1F;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.heading-tertiary {
+  font-size: 2rem;
+  color: #1F1F1F;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.heading-secondary {
+  font-size: 5rem;
+  color: #1F1F1F;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.heading-secondary__form {
+  color: #fff;
+}
+
+/* ==================== Button Starts Here =================== */
+.btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  transition: all .3s;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.7);
+}
+
+.btn__dark {
+  background-color: #2d2d2d;
+  color: #e6e6e6;
+  font-size: 1.6rem;
+  margin-right: 1.5rem;
+}
+
+.btn__dark:hover {
+  background-color: #FFC85B;
+  color: #2d2d2d;
+}
+
+.btn__light {
+  background-color: #e6e6e6;
+  color: #2d2d2d;
+  font-size: 1.6rem;
+}
+
+.btn__more {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  font-size: 1.6rem;
+  color: #FFC85B;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.btn__more:hover {
+  color: #1F1F1F;
+}
+
+/* ==================== Section count Starts Here =================== */
+.count {
+  padding: 0 0 10rem 0;
+}
+
+.count__content {
+  display: flex;
+  gap: 2rem;
+}
+
+.count__experience {
+  flex: 0 0 25%;
+  background-color: #1F1F1F;
+  color: #e6e6e6;
+  padding: 1rem 2rem;
+}
+
+.count__experience--number {
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+
+.count__experience--text {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.count__customers {
+  flex: 0 0 50%;
+  background-color: #FFC85B;
+  padding: 1rem 2rem;
+}
+
+.count__customers--content {
+  display: flex;
+}
+
+.count__customers--content-left {
+  flex: 0 0 50%;
+}
+
+.count__customers--content-right {
+  flex: 0 0 50%;
+  text-align: right;
+}
+
+.count__customers--number {
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+
+.count__customers--text {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.count__customers--line {
+  width: 100%;
+  height: 4px;
+  background-color: #2d2d2d;
+}
+
+.count__store {
+  flex: 0 0 25%;
+  background-color: #1F1F1F;
+  color: #e6e6e6;
+  padding: 1rem 2rem;
+}
+
+.count__store--number {
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+
+.count__store--text {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+/* ==================== Section count ends Here =================== */
+/* ==================== Section about starts Here =================== */
+.about {
+  padding: 10rem 0 0 0;
+}
+
+.about__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+}
+
+.about__photo--img {
+  max-width: 100%;
+  max-height: 90%;
+}
+
+.about__text {
+  padding: 1vw 0 5vw 0;
+}
+
+.about__text--para {
+  font-size: 1.4rem;
+  padding: 2.5rem 5vw 5rem 0;
+}
+
+/* ==================== Section about ends Here =================== */
+/* ==================== Section Advantages starts Here =================== */
+.advantages {
+  padding: 10rem 0;
+}
+
+.advantages__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 3rem;
+  margin-top: 4rem;
+}
+
+.advantages__content--item {
+  padding: 1vw 0;
+  text-align: center;
+}
+
+.advantages__content--item > *:not(last-child) {
+  margin-bottom: 2rem;
+}
+
+.advantages__content--item-1 {
+  background-color: #1F1F1F;
+}
+
+.advantages__content--item-1-icon {
+  font-size: 4rem;
+  color: #FFC85B;
+}
+
+.advantages__content--item-1-heading {
+  color: #FFC85B;
+}
+
+.advantages__content--item-1-text {
+  color: #FFC85B;
+}
+
+.advantages__content--item-2 {
+  background-color: #FFC85B;
+}
+
+.advantages__content--item-2-icon {
+  font-size: 4rem;
+  color: #1F1F1F;
+}
+
+.advantages__content--item-2-heading {
+  color: #1F1F1F;
+}
+
+.advantages__content--item-2-text {
+  color: #1F1F1F;
+}
+
+.advantages__content--item-3 {
+  background-color: #1F1F1F;
+}
+
+.advantages__content--item-3-icon {
+  font-size: 4rem;
+  color: #FFC85B;
+}
+
+.advantages__content--item-3-heading {
+  color: #FFC85B;
+}
+
+.advantages__content--item-3-text {
+  color: #FFC85B;
+}
+
+.advantages__content--icon {
+  font-size: 4rem;
+}
+
+.advantages__content--text {
+  font-size: 1.6rem;
+}
+
+/* ==================== Section Advantages ends Here =================== */
+/* ==================== Section reliable starts Here =================== */
+.reliable__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+}
+
+.reliable__content--1 {
+  padding: 5vw 2vw 0 0;
+}
+
+.reliable__content--1-para {
+  font-size: 1.6rem;
+  margin: 4rem 0;
+}
+
+.reliable__content--1-count {
+  display: flex;
+  gap: 3.2rem;
+}
+
+.reliable__content--1-count-number {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.reliable__content--1-count-text {
+  font-size: 1.6rem;
+}
+
+.reliable__content--2-img {
+  max-width: 100%;
+  max-height: 90%;
+}
+
+.reliable__content--3-img {
+  max-width: 100%;
+  max-height: 90%;
+}
+
+.reliable__content--4 {
+  padding: 5vw 0 0 3vw;
+}
+
+.reliable__content--4-para {
+  font-size: 1.6rem;
+  margin: 4rem 0;
+}
+
+/* ==================== Section reliable ends Here =================== */
+/* ==================== Section style starts Here =================== */
+.style {
+  padding: 5rem 0 10rem 0;
+}
+
+.style__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 3rem;
+  margin-top: 8.5rem;
+}
+
+.style__content--item {
+  text-align: center;
+  box-shadow: 0 0.1rem 2rem rgba(230, 230, 230, 0.7);
+  padding: 0 2vw;
+}
+
+.style__content--item-flex {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.style__content--item-flex-star {
+  font-size: 2.5rem;
+  color: #FFC85B;
+}
+
+.style__content--item-flex-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.style__content--item-para {
+  font-size: 1.4rem;
+  margin: 1.5rem 0;
+}
+
+/* ==================== Section style Ends Here =================== */
+/* ==================== Section Testimonials starts Here =================== */
+.testimonials {
+  padding: 10rem 0;
+  background-color: rgba(255, 200, 91, 0.05);
+}
+
+.testimonials__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 3rem;
+  margin-top: 8rem;
+}
+
+.testimonials__content--item {
+  box-shadow: 0 0.1rem 1.5rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.9rem;
+  padding: 2vh 1.5vw;
+  background-color: #fff;
+}
+
+.testimonials__content--item-flex {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.testimonials__content--item-flex-img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+
+.testimonials__content--item-flex-person-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.testimonials__content--item-flex-person-location {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.testimonials__content--item-text {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+}
+
+/* ==================== Section Testimonials Ends Here =================== */
+/* ==================== Section Form starts Here =================== */
+.form {
+  padding: 10rem 0 15rem 0;
+}
+
+.form__content {
+  background-color: #000;
+  padding: 8rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 2rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .form__content {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
+
+.form__content--input {
+  padding: 2rem 6rem;
+  border: none;
+  outline: none;
+  border-radius: 0.9rem;
+}
+
+.form__content--icon {
+  transform: translateX(-10rem);
+}
+
+.form__content--icon-arrow {
+  font-size: 6rem;
+  color: #fff;
+}
+
+.form__content--icon-arrow::before {
+  content: '';
+  width: 50rem;
+  height: 50rem;
+  border-radius: 50%;
+  background-color: green;
+  color: green;
+  top: 0;
+  left: 0;
+}
+
+/* ==================== Section Form ends Here =================== */
+/* ==================== Section Footer starts Here =================== */
+.footer {
+  background-color: #000;
+  padding: 10rem 0;
+  color: #B6B6B6;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+}
+
+.footer__logo {
+  font-size: 3.2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.footer__text {
+  font-size: 1.4rem;
+}
+
+.footer__list > *:not(:last-child) {
+  margin-bottom: 2.5rem;
+}
+
+.footer__link {
+  font-size: 1.6rem;
+  color: #B6B6B6;
+  transition: all 0.3s;
+}
+
+.footer__link:hover {
+  color: #FFC85B;
+}
+
+.footer__link--main {
+  font-size: 2.6rem;
+  color: #fff;
+}
+
+/* ==================== Section Footer Ends Here =================== */
+/*# sourceMappingURL=main.css.map */

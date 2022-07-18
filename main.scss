@@ -1,0 +1,717 @@
+/* ==================== CSS File =================== */
+
+/* ==================== Media Queries =================== */
+$bp-smallest: 24em; // for 375px
+$bp-small: 37.5em; // for 600px
+$bp-medium:56.25em; // for 900px
+$bp-large: 75em; // for 1200px
+$bp-largest:112.5em; // for 1800px
+
+/* ==================== Fonts =================== */
+$font-primary: 'Poppins', sans-serif;
+
+/* ==================== Colors =================== */
+$color-white: #fff;
+$color-black: #000;
+$color-primary: #1F1F1F;
+$color-secondary: #FFC85B;
+$color-text: #2d2d2d;
+$color-grey-light: #e6e6e6;
+$color-heading: #1F1F1F;
+$color-footer: #B6B6B6;
+
+/* ==================== Center our content =================== */
+.row{
+    max-width: 114rem;
+    margin: 0 auto;
+    @media only screen and (max-width: $bp-large){
+        max-width: 100rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-medium){
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-small){
+        max-width: 55rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-smallest){
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+}
+
+/* ==================== Basic Styling =================== */
+ul{
+    list-style: none;
+
+}
+a{
+    text-decoration: none;
+    color: $color-text;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+h1,h2,h3,h4,h5{
+    color: $color-heading;
+}
+.upper-text{
+    text-transform: uppercase;
+}
+.center-text{
+    text-align: center;
+}
+
+*,
+*:before,
+*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    @media only screen and (max-width: $bp-large){
+        font-size: 56.25%; //9rem
+    }
+    @media only screen and (max-width: $bp-medium){
+        font-size: 50%; //8rem
+    }
+    @media only screen and (max-width: $bp-small){
+        font-size: 47.35%; //7rem
+    }
+    @media only screen and (max-width: $bp-smallest){
+        font-size: 37.5%; //6rem
+    }
+}
+body{
+    font-family: $font-primary;
+    font-weight: 400;
+    color: $color-text;
+    line-height: 1.6;
+    overflow: hidden;
+}
+/* ==================== Header Starts Here =================== */
+.header{
+    // background-color: rgba($color-black, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6rem;
+    // we want header to be sticky
+    height: 9.6rem;
+    z-index: 9999;
+}
+.logo{
+    font-size: 2.4rem;
+    color: $color-black;
+    cursor: pointer;
+    font-weight: 700;
+}
+.main-nav{
+    @media only screen and (max-width: $bp-large){
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba($color-primary, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: all 0.5s;
+        // it should be initially hidden
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        z-index: 9999;
+    }
+    &__list{
+        display: flex;
+        gap: 6rem;
+        align-items: center;
+        @media only screen and (max-width: $bp-large){
+           flex-direction: column; 
+           gap: 3rem;
+           text-align: center;
+        }
+    }
+    &__link{
+        display: inline-block;
+        color: $color-black;
+        font-size: 1.8rem;
+        transition: all 0.2s;
+        &:hover{
+            color: $color-secondary;
+        }
+    }
+    &__cta{
+        padding: 0.5rem 2rem;
+        border: 1px solid $color-black;
+        box-shadow: 0 .1rem .2rem rgba($color-black, 0.7);
+        background-color: $color-black;
+        color: $color-white;
+        transition: all 0.5s;
+        &:hover{
+            background-color: $color-secondary;
+            color: $color-white;
+            border: 1px solid $color-secondary;
+            color: $color-black;
+        }
+    }
+}
+.nav-open .main-nav{
+    @media only screen and (max-width: $bp-large){
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(0);
+        &__link{
+            color: $color-white;
+            font-size: 3rem;
+        }
+    }
+}
+.nav-open .icon-mobile-nav[name = 'close-outline']{
+    display: block;
+}
+.nav-open .icon-mobile-nav[name = 'menu-outline']{
+    display: none;
+}
+.btn-mobile-nav{
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+    @media only screen and (max-width: $bp-large){
+        display: block;
+        z-index: 9999;
+    }
+}
+.icon-mobile-nav{
+    font-size: 4.8rem;
+    color: $color-black;
+}
+.icon-mobile-nav[name="close-outline"]{
+    display: none;
+}
+/* ==================== Sticky Navigation =================== */
+.sticky .header{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 8rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: rgba($color-primary, 0.97);
+    z-index: 999;
+    box-shadow: 0 1.2rem 3.2rem rgba($color-black, 0.3);
+}
+.sticky .hero{
+    margin-top: 9.6rem;
+}
+.sticky .main-nav__link{
+    color: $color-white;
+    &:hover{
+        color: $color-secondary;
+    }
+}
+.sticky .logo{
+    color: $color-white;
+}
+.sticky .main-nav__cta{
+    background-color: $color-secondary;
+    color: $color-white;
+    &:hover{
+        color: $color-primary;
+    }
+}
+/* ==================== Navigation Ends here =================== */
+/* ==================== Header Ends Here =================== */
+
+/* ==================== Hero Starts Here =================== */
+.hero{
+    padding: 10rem 0 0 0;
+    &__content{
+        display: flex;
+        @media only screen and (max-width: $bp-large){
+            flex-direction: column;
+        }
+    }
+    &__textbox{
+        flex: 0 0 50%;
+        & > *:not(:last-child){
+            margin-bottom: 2.5rem;
+        }
+        &--para{
+            font-size: 1.6rem;
+        }
+        &--flex{
+            display: flex;
+            margin-top: 4rem;
+            
+            &-left{
+                // padding: 0 2vw 0 0;
+                &-para{
+                    font-size: 1.4rem;
+                }
+            }
+            &-right{
+                padding: 0 0 0 2vw;
+                &-para{
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+    &__img{
+        flex: 1;
+        transform: translate(10rem, -10rem);
+        z-index: 1;
+        @media only screen and (max-width: $bp-large){
+            transform: translate(0);
+        }
+        &--photo{
+            
+        }
+    }
+}
+/* ==================== Hero Ends Here =================== */
+
+/* ==================== Headings Starts Here =================== */
+.heading-primary{
+    font-size: 6rem;
+    color: $color-heading;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.heading-tertiary{
+    font-size: 2rem;
+    color: $color-heading;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.heading-secondary{
+    font-size: 5rem;
+    color: $color-heading;
+    font-weight: 600;
+    line-height: 1;
+    &__form{
+        color: $color-white;
+    }
+}
+/* ==================== Button Starts Here =================== */
+.btn{
+    display: inline-block;
+    padding: 1rem 3rem;
+    transition: all .3s;
+    box-shadow: 0 .2rem .4rem rgba($color-black, 0.7);
+    &__dark{
+        background-color: $color-text;
+        color: $color-grey-light;
+        font-size: 1.6rem;
+        margin-right: 1.5rem;
+        &:hover{
+            background-color: $color-secondary;
+            color: $color-text;
+        }
+    }
+    &__light{
+        background-color: $color-grey-light;
+        color: $color-text;
+        font-size: 1.6rem;
+    }
+    &__more{
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        font-size: 1.6rem;
+        color: $color-secondary;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: all 0.3s;
+        &:hover{
+            color: $color-primary;
+        }
+    }
+}
+
+/* ==================== Section count Starts Here =================== */
+.count{
+    padding: 0 0 10rem 0;
+    &__content{
+        display: flex;
+        gap: 2rem;
+    }
+    &__experience{
+        flex: 0 0 25%;
+        background-color: $color-primary;
+        color: $color-grey-light;
+        padding: 1rem 2rem;
+        &--number{
+            font-size: 2.8rem;
+            font-weight: 600;
+        }
+        &--text{
+            font-size: 1.6rem;
+            text-transform: uppercase;
+        }
+    }
+    &__customers{
+        flex: 0 0 50%;
+        background-color: $color-secondary;
+        padding: 1rem 2rem;
+        &--content{
+            display: flex;
+            &-left{
+                flex: 0 0 50%;
+            }
+            &-right{
+                flex: 0 0 50%;
+                text-align: right;
+            }
+            
+        }
+        &--number{
+            font-size: 2.8rem;
+            font-weight: 600;
+          
+        }
+        &--text{
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            
+        }
+        &--line{
+            width: 100%;
+            height: 4px;
+            background-color: $color-text;
+        }
+    }
+    &__store{
+        flex: 0 0 25%;
+        background-color: $color-primary;
+        color: $color-grey-light;
+        padding: 1rem 2rem;
+        &--number{
+            font-size: 2.8rem;
+            font-weight: 600;
+        }
+        &--text{
+            font-size: 1.6rem;
+            text-transform: uppercase;
+        }
+    }
+}
+/* ==================== Section count ends Here =================== */
+
+/* ==================== Section about starts Here =================== */
+.about{
+    padding: 10rem 0 0 0;
+    &__content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+    }
+    &__photo{
+        &--img{
+            max-width: 100%;
+            max-height: 90%;
+        }
+    }
+    &__text{
+        padding: 1vw 0 5vw 0;
+        &--para{
+            font-size: 1.4rem;
+            padding: 2.5rem 5vw 5rem 0;
+
+        }
+    }
+}
+/* ==================== Section about ends Here =================== */
+
+/* ==================== Section Advantages starts Here =================== */
+.advantages{
+    padding: 10rem 0;
+    &__content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 3rem;
+        margin-top: 4rem;
+        &--item{
+            padding: 1vw 0;
+            text-align: center;
+            & > *:not(last-child){
+                margin-bottom: 2rem;
+            }
+            &-1{
+                background-color: $color-primary;
+                &-icon{
+                    font-size: 4rem;
+                    color: $color-secondary;
+                }
+                &-heading{
+                    color: $color-secondary;
+                }
+                &-text{
+                    color: $color-secondary;
+                }
+            }
+            &-2{
+                background-color: $color-secondary;
+                &-icon{
+                    font-size: 4rem;
+                    color: $color-primary;
+                }
+                &-heading{
+                    color: $color-primary;
+                }
+                &-text{
+                    color: $color-primary;
+                }
+            }
+            &-3{
+                background-color: $color-primary;
+                &-icon{
+                    font-size: 4rem;
+                    color: $color-secondary;
+                }
+                &-heading{
+                    color: $color-secondary;
+                }
+                &-text{
+                    color: $color-secondary;
+                }
+            }
+        }
+        &--icon{
+            font-size: 4rem;            
+        }
+        &--text{
+            font-size: 1.6rem;
+        }
+    }
+}
+/* ==================== Section Advantages ends Here =================== */
+
+/* ==================== Section reliable starts Here =================== */
+.reliable{
+    &__content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+        &--1{
+            padding: 5vw 2vw 0 0;
+            &-para{
+                font-size: 1.6rem;
+                margin: 4rem 0;
+            }
+            &-count{
+                display: flex;
+                gap: 3.2rem;
+                &-number{
+                    font-size: 2rem;
+                    font-weight: 800;
+                }
+                &-text{
+                    font-size: 1.6rem;
+                }
+            }
+        }
+        &--2{
+            &-img{
+                max-width: 100%;
+                max-height: 90%;
+            }
+        }
+        &--3{
+            &-img{
+                max-width: 100%;
+                max-height: 90%;
+            }
+        }
+        &--4{
+            padding: 5vw 0 0 3vw;
+            &-para{
+                font-size: 1.6rem;
+                margin: 4rem 0;
+            }
+        }
+    }
+}
+/* ==================== Section reliable ends Here =================== */
+
+/* ==================== Section style starts Here =================== */
+.style{
+    padding: 5rem 0 10rem 0;
+    &__content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 3rem;
+        margin-top: 8.5rem;
+        &--item{
+            text-align: center;
+            box-shadow: 0 .1rem 2rem rgba($color-grey-light, 0.7);
+            padding: 0 2vw;
+            &-flex{
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+                justify-content: center;
+                &-star{
+                    font-size: 2.5rem;
+                    color: $color-secondary;
+                }
+                &-number{
+                    font-size: 1.8rem;
+                    font-weight: 800;
+                }
+            }
+            &-para{
+                font-size: 1.4rem;
+                margin: 1.5rem 0;
+            }
+        }
+    }
+}
+/* ==================== Section style Ends Here =================== */
+
+/* ==================== Section Testimonials starts Here =================== */
+.testimonials{
+    padding: 10rem 0;
+    background-color: rgba($color-secondary, 0.05);
+    &__content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-gap: 3rem;
+        margin-top: 8rem;
+        &--item{
+            box-shadow: 0 .1rem 1.5rem rgba($color-black, 0.2);
+            border-radius: 0.9rem;
+            padding: 2vh 1.5vw;
+            background-color: $color-white;
+            &-flex{
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                &-img{
+                    width: 6rem;
+                    height: 6rem;
+                    border-radius: 50%;
+                }
+                &-person{
+                    &-name{
+                        font-size: 1.4rem;
+                        font-weight: 800;
+                    }
+                    &-location{
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                    }
+                }
+            }
+            &-text{
+                font-size: 1.4rem;
+                margin-top: 2rem;
+            }
+        }
+        
+    }
+}
+/* ==================== Section Testimonials Ends Here =================== */
+
+/* ==================== Section Form starts Here =================== */
+.form{
+    padding: 10rem 0 15rem 0;
+    
+    &__content{
+        background-color: $color-black;
+        padding: 8rem 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 2rem;
+        @media only screen and (max-width: $bp-medium){
+            flex-direction: column;
+            gap: 4rem;
+        }
+        &--input{
+            padding: 2rem 6rem;
+            border: none;
+            outline: none;
+            border-radius: 0.9rem;
+        }
+        &--icon{
+            transform: translateX(-10rem);
+            &-arrow{
+                font-size: 6rem;
+                color: $color-white;
+                &::before{
+                    content: '';
+                    width: 50rem;
+                    height: 50rem;
+                    border-radius: 50%;
+                    background-color: green;
+                    color: green;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
+/* ==================== Section Form ends Here =================== */
+
+/* ==================== Section Footer starts Here =================== */
+.footer{
+    background-color: $color-black;
+    padding: 10rem 0;
+    color: $color-footer;
+    &__content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        @media only screen and (max-width:$bp-small){
+            grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+        }
+    }
+    &__logo{
+        font-size: 3.2rem;
+        color: $color-white;
+        margin-bottom: 2rem;
+    }
+    &__text{
+        font-size: 1.4rem;
+    }
+    &__item{
+
+    }
+    &__list{
+        & > *:not(:last-child){
+            margin-bottom: 2.5rem;
+        }
+    }
+    &__item{
+
+    }
+    &__link{
+        font-size: 1.6rem;
+        color: $color-footer;
+        transition: all 0.3s;
+        &:hover{
+            color: $color-secondary;
+        }
+        &--main{
+            font-size: 2.6rem;
+            color: $color-white;
+        }
+    }
+}
+/* ==================== Section Footer Ends Here =================== */
